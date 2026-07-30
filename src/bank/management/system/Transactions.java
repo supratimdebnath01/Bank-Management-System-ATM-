@@ -86,6 +86,11 @@ public class Transactions extends JFrame implements ActionListener{
         }else if(ae.getSource() == pinchange){
             setVisible(false);
             new PinChange(pinnumber).setVisible(true);
+        }else if(ae.getSource() == balanceenquery){
+            setVisible(false);
+            new BalanceEnquery(pinnumber).setVisible(true);
+        }else if(ae.getSource() == ministatement){
+            new MiniStatement(pinnumber).setVisible(true);
         }
 
     }
