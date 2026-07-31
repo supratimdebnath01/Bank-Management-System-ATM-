@@ -21,7 +21,7 @@ public class BalanceEnquery extends JFrame implements ActionListener{
         ImageIcon i3 = new ImageIcon(i2);
         JLabel image = new JLabel(i3);
         image.setBounds(0,0,900,900);
-        add(image);
+        add(image); 
         
         back = new JButton("BACK");
         back.setBounds(355, 520, 150, 30);
