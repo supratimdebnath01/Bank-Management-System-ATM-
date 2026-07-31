@@ -29,7 +29,7 @@ public class Withdrawl extends JFrame implements ActionListener{
         text.setBounds(180, 300, 400, 20);
         text.setForeground(Color.WHITE);
         text.setFont(new Font ("Raleway", Font.BOLD, 16));
-        image.add(text);
+        image.add(text); 
         
         amount = new JTextField();
         amount.setFont(new Font ("Raleway", Font.BOLD, 22));

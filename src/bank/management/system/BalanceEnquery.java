@@ -27,7 +27,7 @@ public class BalanceEnquery extends JFrame implements ActionListener{
         back.setBounds(355, 520, 150, 30);
         back.addActionListener(this);
         image.add(back);
-        
+          
            Conn c = new Conn();
            int balance = 0;
             try{

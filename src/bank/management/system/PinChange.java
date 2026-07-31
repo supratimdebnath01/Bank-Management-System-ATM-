@@ -10,7 +10,7 @@ public class PinChange extends JFrame implements ActionListener{
     JPasswordField pin,repin;
     JButton change,back;
     
-    String pinnumber;
+    String pinnumber; 
     
     PinChange(String pinnumber){
         this.pinnumber = pinnumber;

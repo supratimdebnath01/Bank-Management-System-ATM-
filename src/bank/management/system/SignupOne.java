@@ -14,7 +14,7 @@ public class SignupOne extends JFrame implements ActionListener{
     JButton next;
     JRadioButton male,female,other, married,unmarried;
     JDateChooser dateChooser;
-    
+     
     SignupOne(){
         
         setLayout(null);

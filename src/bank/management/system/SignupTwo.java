@@ -14,7 +14,7 @@ public class SignupTwo extends JFrame implements ActionListener{
     String formno;
     
     SignupTwo(String formno){
-        this.formno = formno;
+        this.formno = formno; 
         
         setLayout(null);
         

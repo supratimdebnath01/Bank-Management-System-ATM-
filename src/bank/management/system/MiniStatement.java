@@ -14,7 +14,7 @@ public class MiniStatement extends JFrame{
         
         
         setTitle("Mini Statement");
-        
+         
         setLayout(null);
         
         mini = new JLabel();
@@ -62,7 +62,7 @@ public class MiniStatement extends JFrame{
         
         mini.setBounds(20, 140, 400, 200);
         
-        setSize(400, 400);
+        setSize(400, 600);
 //        setUndecorated(true);
         getContentPane().setBackground(Color.WHITE);
         setLocation(20, 20);

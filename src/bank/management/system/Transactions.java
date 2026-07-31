@@ -93,7 +93,7 @@ public class Transactions extends JFrame implements ActionListener{
             new MiniStatement(pinnumber).setVisible(true);
         }
 
-    }
+    } 
     
     public static void main(String args[]){
       

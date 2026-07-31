@@ -90,7 +90,7 @@ public class FastCash extends JFrame implements ActionListener{
                     }else{
                         balance -= Integer.parseInt(rs.getString("amount"));
                     }               
-                }
+                } 
                 
                 if(ae.getSource() != exit && balance < Integer.parseInt(amount)){
                     JOptionPane.showMessageDialog(null, "Insuffient Balance");
