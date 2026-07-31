@@ -90,7 +90,7 @@ public class SignupTwo extends JFrame implements ActionListener{
         occupation.setBounds(300, 390, 400, 30);
         add(occupation);
         
-        JLabel address = new JLabel("PAN No:");
+        JLabel address = new JLabel("*PAN No:");
         address.setFont(new Font ("Raleway", Font.BOLD, 20));
         address.setBounds(100, 440,200,30);
         add(address);
@@ -101,7 +101,7 @@ public class SignupTwo extends JFrame implements ActionListener{
         add(pan);
         
         
-        JLabel city = new JLabel("Aadhar No:");
+        JLabel city = new JLabel("*Aadhar No:");
         city.setFont(new Font ("Raleway", Font.BOLD, 20));
         city.setBounds(100, 490,200,30);
         add(city);
@@ -191,12 +191,19 @@ public class SignupTwo extends JFrame implements ActionListener{
         String saadhar = aadhar.getText();      
 
         try{
-            Conn c = new Conn();
-            String query = "INSERT INTO signuptwo values('"+formno+"','"+sreligion+"','"+scategory+"', '"+sincome+"', '"+seducation+"', '"+soccupation+"','"+span+"','"+saadhar+"','"+seniorcitizen+"','"+existingaccount+"'); ";
-            c.s.executeUpdate(query);
-              
-            setVisible(false);
-            new SignupThree(formno).setVisible(true);
+            if(span.equals("")){
+                JOptionPane.showMessageDialog(null, "PAN is Required");
+            }else if(saadhar.equals("")){
+                JOptionPane.showMessageDialog(null, "Aadhar Number is Required");
+            }
+            else{
+                Conn c = new Conn();
+                String query = "INSERT INTO signuptwo values('"+formno+"','"+sreligion+"','"+scategory+"', '"+sincome+"', '"+seducation+"', '"+soccupation+"','"+span+"','"+saadhar+"','"+seniorcitizen+"','"+existingaccount+"'); ";
+                c.s.executeUpdate(query);
+
+                setVisible(false);
+                new SignupThree(formno).setVisible(true);
+            }
         }catch(Exception e){
            System.out.println(e);
         }

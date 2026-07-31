@@ -22,7 +22,7 @@ public class SignupThree extends JFrame implements ActionListener{
         l1.setBounds(280, 40, 400, 40);
         add(l1);
         
-        JLabel type = new JLabel("Account Type");
+        JLabel type = new JLabel("*Account Type:");
         type.setFont(new Font ("Raleway", Font.BOLD, 22));
         type.setBounds(100, 140, 200, 40);
         add(type);
@@ -88,9 +88,9 @@ public class SignupThree extends JFrame implements ActionListener{
         pindetail.setBounds(100, 400, 300, 40);
         add(pindetail);
         
-        JLabel services = new JLabel("Services Required:");
+        JLabel services = new JLabel("*Services Required:");
         services.setFont(new Font ("Raleway", Font.BOLD, 22));
-        services.setBounds(100, 450, 200, 30);
+        services.setBounds(100, 450, 250, 30);
         add(services);
         
         c1 = new JCheckBox("ATM CARD"); 
@@ -181,22 +181,32 @@ public class SignupThree extends JFrame implements ActionListener{
             
             String facility = "";
             if(c1.isSelected()){
-                facility = facility + " ATM Card";
-            }else if(c2.isSelected()){
-                facility = facility + " Internet Banking";
-            }else if(c3.isSelected()){
-                facility = facility + " Mobile Banking";
-            }else if(c4.isSelected()){
-                facility = facility + " EMAIL & SMS Alerts";
-            }else if(c5.isSelected()){
-                facility = facility + " Cheque Book";
-            }else if(c6.isSelected()){
-                facility = facility + " E-Statement";
+                facility += " ATM Card, ";
+            }if(c2.isSelected()){
+                facility += " Internet Banking, ";
+            }if(c3.isSelected()){
+                facility += " Mobile Banking, ";
+            }if(c4.isSelected()){
+                facility += " EMAIL & SMS Alerts, ";
+            }if(c5.isSelected()){
+                facility += " Cheque Book, ";
+            }if(c6.isSelected()){
+                facility += " E-Statement, ";
+            }
+            if (!facility.isEmpty()) {
+                facility = facility.substring(0, facility.length() - 2);
             }
             
             try{
-                if(accountType.equals("")){
+                if(accountType == null){
                     JOptionPane.showMessageDialog(null, "Account Type is Required");
+                    return;
+                }if(facility.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Select at least one service.");
+                    return;
+                }if(!c7.isSelected()){
+                    JOptionPane.showMessageDialog(null, "Please accept the declaration.");
+                    return;
                 }else{
                     Conn conn = new Conn();
                     String query1 = "INSERT INTO signupthree values('"+formno+"','"+accountType+"','"+cardnumber+"', '"+pinnumber+"', '"+facility+"'); ";

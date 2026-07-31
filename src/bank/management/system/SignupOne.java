@@ -14,6 +14,7 @@ public class SignupOne extends JFrame implements ActionListener{
     JButton next;
     JRadioButton male,female,other, married,unmarried;
     JDateChooser dateChooser;
+    JLabel formno, personalDetails, name, fname, dob, gender, email, marital, address, city, state, pincode;
      
     SignupOne(){
         
@@ -24,18 +25,18 @@ public class SignupOne extends JFrame implements ActionListener{
         random = (Math.abs(ran.nextLong() % 9000L) + 1000L);
         
         
-        JLabel formno = new JLabel("APPLICATION FORM NO. " + random);
+        formno = new JLabel("APPLICATION FORM NO. " + random);
         formno.setFont(new Font ("Raleway", Font.BOLD, 38));
         formno.setBounds(140, 20,600,40);
         add(formno);
         
-        JLabel personalDetails = new JLabel("Page 1: Personal Details");
+        personalDetails = new JLabel("Page 1: Personal Details");
         personalDetails.setFont(new Font ("Raleway", Font.BOLD, 22));
         personalDetails.setBounds(290, 80,400,30);
         add(personalDetails);
         
         
-        JLabel name = new JLabel("Name:");
+        name = new JLabel("*Name:");
         name.setFont(new Font ("Raleway", Font.BOLD, 20));
         name.setBounds(100, 140,100,30);
         add(name);
@@ -45,7 +46,7 @@ public class SignupOne extends JFrame implements ActionListener{
         nameTextField.setBounds(300, 140, 400, 30);
         add(nameTextField);
         
-        JLabel fname = new JLabel("Father's Name:");
+        fname = new JLabel("*Father's Name:");
         fname.setFont(new Font ("Raleway", Font.BOLD, 20));
         fname.setBounds(100, 190,200,30);
         add(fname);
@@ -55,7 +56,7 @@ public class SignupOne extends JFrame implements ActionListener{
         fnameTextField.setBounds(300, 190, 400, 30);
         add(fnameTextField);
         
-        JLabel dob = new JLabel("DOB:");
+        dob = new JLabel("DOB:");
         dob.setFont(new Font ("Raleway", Font.BOLD, 20));
         dob.setBounds(100, 240,200,30);
         add(dob);
@@ -67,7 +68,7 @@ public class SignupOne extends JFrame implements ActionListener{
         
         
       
-        JLabel gender = new JLabel("Gender:");
+        gender = new JLabel("Gender:");
         gender.setFont(new Font ("Raleway", Font.BOLD, 20));
         gender.setBounds(100, 290,200,30);
         add(gender);
@@ -86,7 +87,7 @@ public class SignupOne extends JFrame implements ActionListener{
         gendergroup.add(male);
         gendergroup.add(female);
         
-        JLabel email = new JLabel("Email Address:");
+        email = new JLabel("Email Address:");
         email.setFont(new Font ("Raleway", Font.BOLD, 20));
         email.setBounds(100, 340,200,30);
         add(email);
@@ -96,7 +97,7 @@ public class SignupOne extends JFrame implements ActionListener{
         emailTextField.setBounds(300, 340, 400, 30);
         add(emailTextField);
         
-        JLabel marital = new JLabel("Marital Status:");
+        marital = new JLabel("Marital Status:");
         marital.setFont(new Font ("Raleway", Font.BOLD, 20));
         marital.setBounds(100, 390,200,30);
         add(marital);
@@ -122,7 +123,7 @@ public class SignupOne extends JFrame implements ActionListener{
         maritalgroup.add(other);
 
         
-        JLabel address = new JLabel("Address:");
+        address = new JLabel("Address:");
         address.setFont(new Font ("Raleway", Font.BOLD, 20));
         address.setBounds(100, 440,200,30);
         add(address);
@@ -133,7 +134,7 @@ public class SignupOne extends JFrame implements ActionListener{
         add(addressTextField);
         
         
-        JLabel city = new JLabel("City:");
+        city = new JLabel("City:");
         city.setFont(new Font ("Raleway", Font.BOLD, 20));
         city.setBounds(100, 490,200,30);
         add(city);
@@ -143,7 +144,7 @@ public class SignupOne extends JFrame implements ActionListener{
         cityTextField.setBounds(300, 490, 400, 30);
         add(cityTextField);
         
-        JLabel state = new JLabel("State:");
+        state = new JLabel("State:");
         state.setFont(new Font ("Raleway", Font.BOLD, 20));
         state.setBounds(100, 540,200,30);
         add(state);
@@ -153,7 +154,7 @@ public class SignupOne extends JFrame implements ActionListener{
         stateTextField.setBounds(300, 540, 400, 30);
         add(stateTextField);
         
-        JLabel pincode = new JLabel("PIN:");
+        pincode = new JLabel("PIN:");
         pincode.setFont(new Font ("Raleway", Font.BOLD, 20));
         pincode.setBounds(100, 590,200,30);
         add(pincode);
@@ -210,7 +211,9 @@ public class SignupOne extends JFrame implements ActionListener{
         try{
             if(name.equals("")){
                 JOptionPane.showMessageDialog(null, "Name is Required");
-            } else{
+            }else if(fname.equals("")){
+                JOptionPane.showMessageDialog(null, "Father Name is Required");
+            }else{
                 Conn c = new Conn();
                 String query = "INSERT INTO signup values('"+formno+"','"+name+"','"+fname+"', '"+dob+"', '"+gender+"', '"+email+"','"+marital+"','"+address+"','"+city+"','"+pin+"','"+state+"'); ";
                 c.s.executeUpdate(query);
